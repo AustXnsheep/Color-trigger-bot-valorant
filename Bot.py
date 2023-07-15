@@ -7,7 +7,6 @@ import mss
 import winsound
 from tkinter import *
 
-S_HEIGHT, S_WIDTH = PIL.ImageGrab.grab().size
 PURPLE_R, PURPLE_G, PURPLE_B = (250, 100, 250)
 TOLERANCE = 60
 GRABZONE = 5
@@ -18,52 +17,7 @@ COLOR_KEY = "alt"
 MODECHANGEKEY = "ctrl + tab"
 CURRENTMODE = "SLOW"
 
-
-def click():
-    try:
-        text_info_1 = str(text1.get())
-        text_info_2 = str(text2.get())
-    except Exception as e:
-        text1.delete(0, END)
-        text2.delete(0, END)
-        text3.delete(0, END)
-        text3.insert(0, f'Error: {e}')
-        return
-    text3.delete(0, END)
-    text3.insert(0, str(text_info_1) + str(text_info_2))
-
-#GUI CORE
-root = Tk()
-root.geometry('300x400')
-root.title('Valorant TriggerBot - Made by Austxnsheep')
-
-# GUIS ELEMENTS
-label1 = Label(root, text='VERSION 1.1')
-label1.pack()
-
-spacing1 = Label(root)
-spacing1.pack()
-
-text1 = Entry(root)
-text1.pack(ipadx=20)
-
-spacing2 = Label(root, text='+')
-spacing2.pack()
-
-text2 = Entry(root)
-text2.pack(ipadx=20)
-
-spacing3 = Label(root)
-spacing3.pack()
-
-button = Button(root, text='Update', command=click)
-button.pack()
-
-spacing4 = Label(root)
-spacing4.pack()
-
-text3 = Entry(root)
-text3.pack(ipadx=60)
+S_HEIGHT, S_WIDTH = PIL.ImageGrab.grab().size
 
 #TRIGGERBOT
 class FoundEnemy(Exception):
@@ -174,5 +128,3 @@ if __name__ == "__main__":
             bot.scan()
 
             # switch(self)
-#loops
-root.mainloop()
